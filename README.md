@@ -1,4 +1,7 @@
 # Project: AES
+## Run
+> python script/grade.py
+
 ## VHDL code part
 - How to start the project?
 > The whole project is huge but we can divide it into many small parts. Although there are many rounds in the whole d/e process, we just need to implement some small entities like shift, add, sub, and so on. Later, I test each of them **respectively** and organize them in the top-level entity.
@@ -21,7 +24,7 @@
 > I add one register for each addroundkey component. Since addroundkey is in all rounds, the whole process is divided into #rounds stage pipeline.
 
 - Adjustable number of input ports, can adapt to more scenarios
-> I use generic length for input keys and if the length of key is legal, it will generate porper hardware for each situation. However, the length can't be changed at runtime. I think it will waste areas for some usused rounds.
+> I use generic length for input keys and if the length of the key is legal, it will generate proper hardware for each situation. However, the length can't be changed at runtime. I think it will waste areas for some unsused rounds.
  
 - Dynamic encryption and decryption, encryption operation or decryption operation can be selected in running time
 > There are one encryption and decryption in the top level entity, so it can select which mode it runs. 
@@ -29,6 +32,6 @@
 - Complete comments, standard writing, my code can be used as a tutorial
 
 ## Potential imporvement
-- The decrpytion and encryption use the same components but arrange them in different order. Actually, we can add some muxes and just use one set to do two operations.
+- The decryption and encryption use the same components but arrange them in a different order. Actually, we can add some muxes and just use one set to do two operations.
 
-- The #registers for expanded key can be cut off by a good controller.  
+- The #registers for the expanded key can be cut off by a good controller.  
